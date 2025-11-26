@@ -1,0 +1,51 @@
+<div class="container d-flex justify-content-center align-item-center ">
+    <div class="card mt-5 w-50 d-flex justify-content-center p-5">
+        <div class="card-title text-center">
+            <h2> User Details </h2>
+        </div>
+
+        @if (userDetails) {
+        <div class="row">
+            <div class="col-6 col-md-6 mt-4">
+                <div class="d-flex flex-column">
+                    <label class="form-label">Id</label>
+                    <label class="fw-bold">{{userDetails.id}}</label>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 mt-4">
+                <div class="d-flex flex-column">
+                    <label class="form-label">Name</label>
+                    <label class="fw-bold">{{userDetails.name}}</label>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 mt-4">
+                <div class="d-flex flex-column">
+                    <label class="form-label">Language</label>
+                    <label class="fw-bold">{{userDetails.language}}</label>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 mt-4">
+                <div class="d-flex flex-column">
+                    <label class="form-label">Version</label>
+                    <label class="fw-bold">{{userDetails.version}}</label>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-12 mt-4">
+                <div class="d-flex flex-column">
+                    <label class="form-label">Bio</label>
+                    <label class="fw-bold">{{userDetails.bio}}</label>
+                </div>
+            </div>
+        </div>
+        } @else {
+        <h4>No User Details For Id - <span class=""> {{userId}} </span></h4>
+        }
+        <div class="d-flex justify-content-center mt-5">
+            <button class="btn btn-outline-primary" (click)="goBackToUserListing()">Back</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container-fluid p-5">
+    <div class="card p-4">
+        <div class="card-title text-center">
+            <h2>User Listing</h2>
+        </div>
+        <div class="card-body">
+            <p-table [value]="userList" dataKey="id"
+                [tableStyle]="{ 'min-width': '50rem', 'background-color': 'white' }" [paginator]="true" [rows]="10"
+                [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]">
+                <ng-template #header>
+                    <tr>
+                        @for (item of dyanamicHeaders; track $index) {
+                        <th>
+                            {{item | uppercase}}
+                        </th>
+                        }
+                        <th>
+                            ACTION
+                        </th>
+
+                    </tr>
+                </ng-template>
+                <ng-template #body let-user let-editing="editing">
+                    <tr>
+                        @for (userKey of dyanamicHeaders; track $index) {
+                        <td [pEditableColumn]="user[userKey]" [pEditableColumnField]="userKey">
+                            <p-cellEditor>
+                                <ng-template #input>
+                                    <input pInputText type="text" [(ngModel)]="user[userKey]" fluid />
+                                </ng-template>
+                                <ng-template #output>
+                                    {{ user[userKey] }}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        }
+                        <td>
+                            <span class="cursor-pointer" (click)="onViewClick(user.id)">View</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
