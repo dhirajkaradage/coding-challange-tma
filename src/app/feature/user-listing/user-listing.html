@@ -4,9 +4,8 @@
             <h2>User Listing</h2>
         </div>
         <div class="card-body">
-            <p-table [value]="userList" dataKey="id"
-                [tableStyle]="{ 'min-width': '50rem', 'background-color': 'white' }" [paginator]="true" [rows]="10"
-                [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]">
+            <p-table [value]="userList" dataKey="id" [tableStyle]="{ 'min-width': '50rem',  }"  [paginator]="true"
+                [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]">
                 <ng-template #header>
                     <tr>
                         @for (item of dyanamicHeaders; track $index) {
@@ -17,7 +16,6 @@
                         <th>
                             ACTION
                         </th>
-
                     </tr>
                 </ng-template>
                 <ng-template #body let-user let-editing="editing">
@@ -26,7 +24,8 @@
                         <td [pEditableColumn]="user[userKey]" [pEditableColumnField]="userKey">
                             <p-cellEditor>
                                 <ng-template #input>
-                                    <input pInputText type="text" [(ngModel)]="user[userKey]" fluid />
+                                    <input pInputText [type]="userKey == 'version' ? 'number': 'text'"
+                                        [(ngModel)]="user[userKey]" fluid />
                                 </ng-template>
                                 <ng-template #output>
                                     {{ user[userKey] }}
