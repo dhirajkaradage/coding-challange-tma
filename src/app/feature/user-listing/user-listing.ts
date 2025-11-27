@@ -30,7 +30,6 @@ export class UserListing {
         if (this.userList.length > 0) {
           this.dyanamicHeaders = Object.keys(this.userList[0]);
           console.log('this is header keys ', this.dyanamicHeaders);
-          
         }
       },
       error: (error) => {
